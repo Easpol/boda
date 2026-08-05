@@ -1,0 +1,252 @@
+:root {
+  --bg: #fbfaf6;
+  --card: #ffffff;
+  --text: #2f3d27;
+  --accent: #4a5d34;
+  --accent-dark: #38471f;
+  --line: rgba(74, 93, 52, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'EB Garamond', serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.top-section {
+  position: relative;
+  width: 100%;
+  background: url('juntos.png') no-repeat top center;
+  background-size: cover;
+}
+
+.bottom-section {
+  position: relative;
+  width: 100%;
+  margin-top: -120px;
+  padding-top: 120px;
+  background: url('fondo.png') no-repeat top center;
+  background-size: 100% 100%;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 120px);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 120px);
+}
+
+.page-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+.bottom-section .page-inner {
+  padding-bottom: 60px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Pinyon Script', cursive;
+  font-weight: 400;
+  color: var(--accent);
+  margin: 0;
+}
+
+.cover {
+  position: relative;
+  min-height: 65vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.cover__content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 20px;
+  padding: 28px 32px;
+  backdrop-filter: blur(2px);
+}
+
+.cover h1 {
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
+}
+
+.cover .date {
+  margin-top: 14px;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.intro {
+  text-align: center;
+  padding: 32px 16px 8px;
+}
+
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.intro p {
+  max-width: 620px;
+  margin: 0 auto 12px;
+  line-height: 1.7;
+  font-size: 1.08rem;
+}
+
+.intro__promise {
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+  margin-top: 18px;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 86px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+
+.timeline__item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 0;
+}
+
+.timeline__time {
+  flex: 0 0 70px;
+  text-align: right;
+  font-style: italic;
+  font-size: 1rem;
+  padding-top: 4px;
+}
+
+.timeline__dot {
+  flex: 0 0 9px;
+  width: 9px;
+  height: 9px;
+  margin-top: 8px;
+  margin-left: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline__content {
+  flex: 1 1 auto;
+  padding-top: 2px;
+}
+
+.timeline__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.timeline__icon {
+  flex: 0 0 26px;
+  font-size: 1.3rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.timeline__content h3 {
+  font-size: 1.7rem;
+  margin: 0;
+}
+
+.timeline__content p {
+  margin: 4px 0 10px;
+  line-height: 1.6;
+}
+
+.pill-button {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.pill-button:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+.pill-button--lg {
+  padding: 12px 26px;
+  font-size: 1.05rem;
+}
+
+.pill-button.selected {
+  background: var(--accent-dark);
+  box-shadow: 0 0 0 3px rgba(74, 93, 52, 0.25);
+}
+
+.rsvp {
+  text-align: center;
+  margin-top: 50px;
+  padding: 30px 16px 10px;
+}
+
+.rsvp h2 {
+  font-size: 2rem;
+  margin-bottom: 26px;
+}
+
+.rsvp__options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rsvp__option p {
+  margin-top: 12px;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .timeline::before {
+    left: 56px;
+  }
+
+  .timeline__time {
+    flex-basis: 40px;
+    font-size: 0.85rem;
+  }
+
+  .rsvp__options {
+    grid-template-columns: 1fr;
+  }
+}
