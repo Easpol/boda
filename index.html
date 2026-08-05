@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuria y Raúl · Nuestra boda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fbfaf6;
+        --card: #ffffff;
+        --text: #2f3d27;
+        --accent: #4a5d34;
+        --accent-dark: #38471f;
+        --line: rgba(74, 93, 52, 0.25);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'EB Garamond', serif;
+        color: var(--text);
+        background: var(--bg);
+        padding: 20px;
+      }
+
+      main {
+        max-width: 480px;
+        width: 100%;
+        text-align: center;
+      }
+
+      h1 {
+        font-family: 'Pinyon Script', cursive;
+        font-weight: 400;
+        font-size: clamp(3rem, 8vw, 4.5rem);
+        color: var(--accent);
+        margin: 0 0 6px;
+      }
+
+      .date {
+        font-style: italic;
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+      }
+
+      nav {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .menu-link {
+        display: block;
+        padding: 16px 20px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        color: var(--accent-dark);
+        text-decoration: none;
+        font-size: 1.15rem;
+        letter-spacing: 0.02em;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+
+      .menu-link:hover {
+        background: var(--accent);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Nuria y Raúl</h1>
+      <p class="date">21 de noviembre de 2026</p>
+
+      <nav>
+        <a class="menu-link" href="Invitacion/">Invitación</a>
+      </nav>
+    </main>
+  </body>
+</html>
