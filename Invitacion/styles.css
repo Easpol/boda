@@ -28,17 +28,19 @@ body {
   width: 100%;
   background: url('tulipanes.png') no-repeat top center;
   background-size: cover;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 150px), transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 150px), transparent 100%);
 }
 
 .bottom-section {
   position: relative;
   width: 100%;
-  margin-top: -120px;
-  padding-top: 120px;
+  margin-top: -20px;
+  padding-top: 20px;
   background: url('fondo.png') no-repeat top center;
   background-size: 100% 100%;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 120px);
-  mask-image: linear-gradient(to bottom, transparent 0, #000 120px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 20px);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 20px);
 }
 
 .page-inner {
