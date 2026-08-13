@@ -1,0 +1,281 @@
+:root {
+  --bg: #fbfaf6;
+  --card: #ffffff;
+  --text: #2f3d27;
+  --accent: #4a5d34;
+  --accent-dark: #38471f;
+  --line: rgba(74, 93, 52, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'EB Garamond', serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.top-section {
+  position: relative;
+  width: 100%;
+}
+
+.top-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../Invitacion/tulipanes.png') no-repeat top center;
+  background-size: cover;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 150px), transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 150px), transparent 100%);
+}
+
+.top-section > .page-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.bottom-section {
+  position: relative;
+  width: 100%;
+  margin-top: -20px;
+  padding-top: 20px;
+  background: url('../Invitacion/fondo.png') no-repeat top center;
+  background-size: 100% 100%;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 20px);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 20px);
+}
+
+.page-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+.bottom-section .page-inner {
+  padding-bottom: 60px;
+}
+
+h1 {
+  font-family: 'Pinyon Script', cursive;
+  font-weight: 400;
+  color: var(--accent);
+  margin: 0;
+}
+
+.cover {
+  position: relative;
+  min-height: 12vh;
+  display: grid;
+  place-items: end center;
+  text-align: center;
+  padding: 24px 20px 10px;
+}
+
+.cover__content {
+  position: relative;
+  z-index: 1;
+}
+
+.cover h1 {
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  color: var(--accent-dark);
+  text-shadow: 0 3px 10px rgba(47, 61, 39, 0.25);
+}
+
+.cover .date {
+  margin-top: 14px;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.rsvp-form {
+  max-width: 640px;
+  margin: 30px auto 0;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(3px);
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: 0 10px 30px rgba(47, 61, 39, 0.08);
+}
+
+.form-intro {
+  text-align: center;
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
+
+.form-field {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label,
+fieldset legend {
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 22px;
+}
+
+input[type='text'],
+input[type='number'],
+textarea {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+}
+
+input[type='text']:focus,
+input[type='number']:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+  font-family: inherit;
+}
+
+.radio-group {
+  display: flex;
+  gap: 24px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+}
+
+.hijos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: -8px 0 22px;
+  padding: 16px;
+  background: rgba(74, 93, 52, 0.05);
+  border-radius: 14px;
+}
+
+.hijos-container[hidden] {
+  display: none;
+}
+
+.hijo-row {
+  display: flex;
+  gap: 12px;
+}
+
+.hijo-row input {
+  flex: 1;
+}
+
+.intolerancia-row {
+  display: flex;
+  gap: 12px;
+}
+
+.intolerancia-row input {
+  flex: 1;
+}
+
+.word-count {
+  margin: 0;
+  font-size: 0.85rem;
+  text-align: right;
+  color: var(--accent);
+}
+
+.form-error {
+  color: #b3261e;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-success {
+  color: var(--accent);
+  text-align: center;
+  font-weight: 600;
+}
+
+#submit-btn {
+  display: block;
+  margin: 10px auto 0;
+}
+
+.pill-button {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.pill-button:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+.pill-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pill-button--lg {
+  padding: 12px 26px;
+  font-size: 1.05rem;
+}
+
+.pill-button--sm {
+  align-self: flex-start;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .hijo-row {
+    flex-direction: column;
+  }
+
+  .intolerancia-row {
+    flex-direction: column;
+  }
+
+  .radio-group {
+    gap: 16px;
+  }
+
+  .rsvp-form {
+    padding: 26px 18px;
+  }
+}

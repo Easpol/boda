@@ -26,10 +26,21 @@ body {
 .top-section {
   position: relative;
   width: 100%;
+}
+
+.top-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background: url('tulipanes.png') no-repeat top center;
   background-size: cover;
   -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 150px), transparent 100%);
   mask-image: linear-gradient(to bottom, #000 calc(100% - 150px), transparent 100%);
+}
+
+.top-section > .page-inner {
+  position: relative;
+  z-index: 1;
 }
 
 .bottom-section {

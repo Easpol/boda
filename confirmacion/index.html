@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmación de asistencia · Nuria y Raúl</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <div class="top-section">
+        <div class="page-inner">
+          <section class="cover">
+            <div class="cover__content">
+            <h1>¡Qué alegría!</h1>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="bottom-section">
+        <div class="page-inner">
+          <form id="rsvp-form" class="rsvp-form" novalidate>
+            <p class="form-intro">
+              Ahora solo necesitamos saber unas cosillas para tenerlo todo preparado.    </p>
+            <div class="form-field">
+              <label for="nombre_completo">Nombre completo</label>
+              <input type="text" id="nombre_completo" name="nombre_completo" required placeholder="Nombre y apellidos" />
+            </div>
+
+            <div class="form-field">
+              <label for="acompanante">Acompañante</label>
+              <input
+                type="text"
+                id="acompanante"
+                name="acompanante"
+                placeholder="Nombre y apellidos del acompañante"
+                required
+              />
+            </div>
+
+            <fieldset class="form-field">
+              <legend>¿Vendrán peques con vosotros?</legend>
+              <div class="radio-group">
+                <label><input type="radio" name="trae_hijos" value="si" required /> Sí</label>
+                <label><input type="radio" name="trae_hijos" value="no" required /> No</label>
+              </div>
+            </fieldset>
+
+            <div id="hijos-container" class="hijos-container" hidden>
+              <div class="hijo-row">
+                <input type="text" class="hijo-nombre" name="hijo_nombre_1" placeholder="Nombre del niño/a" />
+                <input type="number" class="hijo-edad" name="hijo_edad_1" placeholder="Edad" min="0" max="17" />
+              </div>
+              <button type="button" id="add-hijo" class="pill-button pill-button--sm">+ Añadir otro niño</button>
+            </div>
+
+            <fieldset class="form-field">
+              <legend>¿Vendréis en autobús?</legend>
+              <div class="radio-group">
+                <label><input type="radio" name="autobus" value="si" required /> Sí</label>
+                <label><input type="radio" name="autobus" value="no" required /> No</label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-field">
+              <legend>¿Tenéis alguna alergia o intolerancia alimentaria?</legend>
+              <div class="radio-group">
+                <label><input type="radio" name="tiene_intolerancia" value="si" required /> Sí</label>
+                <label><input type="radio" name="tiene_intolerancia" value="no" required /> No</label>
+              </div>
+            </fieldset>
+
+            <div id="intolerancias-container" class="hijos-container" hidden>
+              <div class="intolerancia-row">
+                <input type="text" class="intolerancia-nombre" name="intolerancia_nombre_1" placeholder="Nombre" />
+                <input
+                  type="text"
+                  class="intolerancia-detalle"
+                  name="intolerancia_detalle_1"
+                  placeholder="Intolerancia"
+                />
+              </div>
+              <button type="button" id="add-intolerancia" class="pill-button pill-button--sm">
+                + Añadir persona con intolerancia
+              </button>
+              <div class="form-field">
+                <label for="telefono_movil">Número de teléfono móvil</label>
+                <input
+                  type="tel"
+                  id="telefono_movil"
+                  name="telefono_movil"
+                  placeholder="Ej. 600 123 456"
+                  pattern="[0-9+\s]{9,15}"
+                />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="mensaje_novios">¿Algunas palabras para los novios?</label>
+              <textarea id="mensaje_novios" name="mensaje_novios" rows="4"></textarea>
+            </div>
+
+            <p id="form-error" class="form-error" hidden></p>
+            <p id="form-success" class="form-success" hidden>
+              ¡Gracias! Vuestra confirmación se ha enviado correctamente.
+            </p>
+
+            <button type="submit" class="pill-button pill-button--lg" id="submit-btn">Enviar confirmación</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
