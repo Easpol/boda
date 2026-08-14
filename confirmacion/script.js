@@ -1,8 +1,8 @@
 // TODO: sustituye estos valores por los tuyos (ver instrucciones de configuración)
-const EMAILJS_PUBLIC_KEY = 'TU_PUBLIC_KEY';
-const EMAILJS_SERVICE_ID = 'TU_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'TU_TEMPLATE_ID';
-const GOOGLE_SHEETS_URL = 'TU_URL_DE_GOOGLE_APPS_SCRIPT';
+const EMAILJS_PUBLIC_KEY = 'MHnxz9mQh-R9v90iD';
+const EMAILJS_SERVICE_ID = 'service_o70lh63';
+const EMAILJS_TEMPLATE_ID = 'template_fxct6ys';
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwXl4NQuH4rYumCVcDu9CmzamHvvHsILmMciNy1FaqR2daQlCsfyUQPAzQWz02sDJLq2A/exec';
 
 emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
