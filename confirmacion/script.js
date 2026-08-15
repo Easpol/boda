@@ -1,4 +1,3 @@
-// TODO: sustituye estos valores por los tuyos (ver instrucciones de configuración)
 const EMAILJS_PUBLIC_KEY = 'MHnxz9mQh-R9v90iD';
 const EMAILJS_SERVICE_ID = 'service_o70lh63';
 const EMAILJS_TEMPLATE_ID = 'template_fxct6ys';
@@ -16,6 +15,7 @@ const tieneIntoleranciaRadios = document.querySelectorAll('input[name="tiene_int
 const formError = document.getElementById('form-error');
 const formSuccess = document.getElementById('form-success');
 const submitBtn = document.getElementById('submit-btn');
+const telefonoInput = document.getElementById('telefono_movil');
 
 let hijoIndex = 1;
 let intoleranciaIndex = 1;
@@ -50,8 +50,28 @@ tieneIntoleranciaRadios.forEach((radio) => {
       .forEach((input) => {
         input.required = tieneIntolerancia;
       });
+    validarTelefono();
   });
 });
+
+// Acepta dígitos, espacios, guiones, puntos, paréntesis y un + inicial opcional
+function validarTelefono() {
+  const valor = telefonoInput.value.trim();
+  if (!valor) {
+    telefonoInput.setCustomValidity(telefonoInput.required ? 'Introduce un número de teléfono.' : '');
+    return;
+  }
+  const digitos = valor.replace(/[^0-9]/g, '');
+  const formatoValido = /^\+?[0-9\s().-]+$/.test(valor);
+  if (!formatoValido || digitos.length < 9 || digitos.length > 15) {
+    telefonoInput.setCustomValidity('Introduce un número de teléfono válido (mínimo 9 dígitos).');
+  } else {
+    telefonoInput.setCustomValidity('');
+  }
+}
+
+validarTelefono();
+telefonoInput.addEventListener('input', validarTelefono);
 
 addIntoleranciaBtn.addEventListener('click', () => {
   intoleranciaIndex += 1;
