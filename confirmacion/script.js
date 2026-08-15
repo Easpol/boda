@@ -27,6 +27,12 @@ traeHijosRadios.forEach((radio) => {
     hijosContainer.querySelectorAll('.hijo-nombre, .hijo-edad').forEach((input) => {
       input.required = traeHijos;
     });
+    if (!traeHijos) {
+      hijosContainer.querySelectorAll('.hijo-row').forEach((row, i) => {
+        if (i > 0) row.remove();
+        else row.querySelectorAll('input').forEach((input) => (input.value = ''));
+      });
+    }
   });
 });
 
@@ -50,6 +56,13 @@ tieneIntoleranciaRadios.forEach((radio) => {
       .forEach((input) => {
         input.required = tieneIntolerancia;
       });
+    if (!tieneIntolerancia) {
+      telefonoInput.value = '';
+      intolerContainer.querySelectorAll('.intolerancia-row').forEach((row, i) => {
+        if (i > 0) row.remove();
+        else row.querySelectorAll('input').forEach((input) => (input.value = ''));
+      });
+    }
     validarTelefono();
   });
 });
@@ -95,23 +108,31 @@ form.addEventListener('submit', (event) => {
   }
 
   const datos = Object.fromEntries(new FormData(form).entries());
+  const traeHijos = form.querySelector('input[name="trae_hijos"]:checked').value === 'si';
+  const tieneIntolerancia = form.querySelector('input[name="tiene_intolerancia"]:checked').value === 'si';
 
-  // Recopila las filas de hijos añadidas dinámicamente en un único texto
+  // Recopila las filas de hijos añadidas dinámicamente en un único texto (solo si la respuesta es "sí")
   const hijos = [];
-  hijosContainer.querySelectorAll('.hijo-row').forEach((row) => {
-    const nombre = row.querySelector('.hijo-nombre').value;
-    const edad = row.querySelector('.hijo-edad').value;
-    if (nombre) hijos.push(`${nombre} (${edad} años)`);
-  });
+  if (traeHijos) {
+    hijosContainer.querySelectorAll('.hijo-row').forEach((row) => {
+      const nombre = row.querySelector('.hijo-nombre').value;
+      const edad = row.querySelector('.hijo-edad').value;
+      if (nombre) hijos.push(`${nombre} (${edad} años)`);
+    });
+  }
   datos.hijos = hijos.length ? hijos.join(', ') : 'No traen hijos';
 
-  // Recopila las filas de intolerancias añadidas dinámicamente en un único texto
+  // Recopila las filas de intolerancias añadidas dinámicamente en un único texto (solo si la respuesta es "sí")
   const intolerancias = [];
-  intolerContainer.querySelectorAll('.intolerancia-row').forEach((row) => {
-    const nombre = row.querySelector('.intolerancia-nombre').value;
-    const detalle = row.querySelector('.intolerancia-detalle').value;
-    if (nombre) intolerancias.push(`${nombre}: ${detalle}`);
-  });
+  if (tieneIntolerancia) {
+    intolerContainer.querySelectorAll('.intolerancia-row').forEach((row) => {
+      const nombre = row.querySelector('.intolerancia-nombre').value;
+      const detalle = row.querySelector('.intolerancia-detalle').value;
+      if (nombre) intolerancias.push(`${nombre}: ${detalle}`);
+    });
+  } else {
+    datos.telefono_movil = '';
+  }
   datos.intolerancias = intolerancias.length ? intolerancias.join(', ') : 'Sin intolerancias';
 
   submitBtn.disabled = true;
